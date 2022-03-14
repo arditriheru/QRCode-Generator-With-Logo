@@ -1,5 +1,5 @@
 <?php
-require APPPATH . 'third_party/phpqrcode/qrlib.php';
+require APPPATH . 'vendor/phpqrcode/qrlib.php';
 
 class Qrcode extends CI_Controller
 {
@@ -19,24 +19,24 @@ class Qrcode extends CI_Controller
         $namafile = "qrcode_arditriheru.png";
       
         //kualitas dan ukuran qrcode
-        $quality = 'H';
-        $ukuran = 8;
-        $padding = 0;
+        $quality    = 'H';
+        $ukuran     = 8;
+        $padding    = 0;
 
         QRCode::png($isi_teks, $tempdir . $namafile, QR_ECLEVEL_H, $ukuran, $padding);
-        $filepath = $tempdir . $namafile;
-        $QR = imagecreatefrompng($filepath);
+        $filepath       = $tempdir . $namafile;
+        $QR             = imagecreatefrompng($filepath);
 
-        $logo = imagecreatefromstring(file_get_contents($logopath));
-        $QR_width = imagesx($QR);
-        $QR_height = imagesy($QR);
+        $logo           = imagecreatefromstring(file_get_contents($logopath));
+        $QR_width       = imagesx($QR);
+        $QR_height      = imagesy($QR);
 
-        $logo_width = imagesx($logo);
-        $logo_height = imagesy($logo);
+        $logo_width     = imagesx($logo);
+        $logo_height    = imagesy($logo);
 
         //besar logo
-        $logo_qr_width = $QR_width / 7;
-        $scale = $logo_width / $logo_qr_width;
+        $logo_qr_width  = $QR_width / 7;
+        $scale          = $logo_width / $logo_qr_width;
         $logo_qr_height = $logo_height / $scale;
 
         //posisi logo

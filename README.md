@@ -1,2 +1,3 @@
 # QRCode-Generator-With-Logo
-Library QRCode generator with logo customize
+
+PHP Library QRCode generator with logo customize
